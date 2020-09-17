@@ -33,7 +33,7 @@ public class SellerDaoJDBC implements SellerDAO {
 		try {
 			stm = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-			stm.setString(1, seller.getNome());
+			stm.setString(1, seller.getName());
 			stm.setString(2, seller.getEmail());
 			stm.setDate(3, new java.sql.Date(seller.getBirthDate().getTime()));
 			stm.setDouble(4, seller.getBaseSalary());
@@ -70,7 +70,7 @@ public class SellerDaoJDBC implements SellerDAO {
 		try {
 			stm = conn.prepareStatement(sql);
 
-			stm.setString(1, seller.getNome());
+			stm.setString(1, seller.getName());
 			stm.setString(2, seller.getEmail());
 			stm.setDate(3, new java.sql.Date(seller.getBirthDate().getTime()));
 			stm.setDouble(4, seller.getBaseSalary());
@@ -140,7 +140,7 @@ public class SellerDaoJDBC implements SellerDAO {
 	private Seller instantiateSeller(ResultSet res, Department tmpDep) throws SQLException {
 		Seller tmpSeller = new Seller();
 		tmpSeller.setId(res.getInt("Id"));
-		tmpSeller.setNome(res.getString("Name"));
+		tmpSeller.setName(res.getString("Name"));
 		tmpSeller.setEmail(res.getString("Email"));
 		tmpSeller.setBaseSalary(res.getDouble("BaseSalary"));
 		tmpSeller.setBirthDate(res.getDate("BirthDate"));
